@@ -1,0 +1,13 @@
+to delete: 
+
+follow.objects.filter(user_id=1).filter(user_id =3).delete()
+
+to filter through certain users: 
+
+Follow.objects.filter(user_id=request.session["user_id"])
+
+use primary key route peramiters 
+
+set session variable 
+
+#utilize .delete() added to the your_users = User.objects.filter(id=id) and that will delete the specific the specific id  

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belt Review</title>
+</head>
+<body>
+    <h1>AM I GONNA PASS ORRRRR...</h1>
+<h1>Register</h1>
+    <form action="/register" method="post">
+        {% csrf_token %}
+        First Name: <input type="text" name="first"><br>
+        Last Name: <input type="text" name="last"><br>
+        Username: <input type="text" name="username"><br>
+        Email: <input type="text" name="email"><br>
+        Date of Birth: <input type="date" name="dob"><br>
+        Password: <input type="password" name="password"><br>
+        Confirm Password: <input type="password" name="confirm"><br>
+        <input type="submit" value="Register">
+    </form>
+
+<hr>
+
+<h1>Login</h1>
+    <form action="/login" method="post">
+        {% csrf_token %}
+        Email: <input type="text" name="email"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Login">
+    </form>
+
+    {%if messages %}
+    <ul>
+        {% for message in messages%}
+        <li>{{message}}</li>
+        {% endfor%}
+    </ul>
+    {% endif %} 
+    <!-- <table border = 1>
+        <tr>
+            <th>Sent By</th>
+            <th>Received By</th>
+            <th>Content</th>
+            <th>Received At</th>
+        </tr>
+        {% for message in messages1 %}
+            <tr>
+                <td>{{message.sent_by.username}}</td>
+                <td>{{message.received_by.username}}</td>
+                <td>{{message.content}}</td>
+                <td>{{message.created_at}}</td>
+            </tr>
+        {%endfor%}
+    </table> -->
+</body>
+</html>

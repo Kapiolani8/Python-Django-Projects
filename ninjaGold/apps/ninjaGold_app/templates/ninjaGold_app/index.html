@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        div{
+            height: 300px;
+            width: 550px;
+            overflow: auto;
+            border: 2px dashed purple;
+            display: inline-block;
+        }
+        body{
+            border: 5px dashed aquamarine;
+            text-align: center;
+        }
+    </style>
+    <title>Ninja Gold</title>
+
+</head>
+<body>
+    <h3>You have {{request.session.gold}} golds!</h3>
+    <h2>Ninja Gold! Weeeee</h2>
+    <fieldset>
+        <legend>Farm</legend>
+        <form action="/process_gold/farm" method="post">
+            <p>Earn between 10 and 20 gold coins!</p>
+            {% csrf_token %}
+            <input type="submit" value="Find Gold!">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Cave</legend>
+        <p>Earn between 5 and 50 gold coins!</p>
+        <form action="/process_gold/cave" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Find Gold!">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>House</legend>
+        <p>Earn between 11 and 100 gold coins!</p>
+        <form action="/process_gold/house" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Find Gold!">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Casino</legend>
+        <form action="/process_gold/casino" method="POST">
+            <p>Earn or lose between 0 and 50 gold coins!</p>
+            {% csrf_token %}
+            <input type="submit" value="Find Gold!">
+        </form>
+    </fieldset>
+    <div>
+        {% for x in request.session.activity reversed%}
+            <p>{{x}}</p>
+        {%endfor%}
+    </div>
+</body>
+</html>

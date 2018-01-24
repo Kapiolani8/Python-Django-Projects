@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Welcome Back {{user.name}}</h3>
+    <p>Quoted Quotables</p>
+
+    <table border = 1>
+        <tr>
+            <th>Author</th>
+            <th>Quote</th>
+            <th>Posted By</th>
+        </tr>  
+    {% for x in quotes %}
+    <tr>
+        <td>{{x.author}}</td>
+        <td>
+            {{x.quote}}
+            <a href="/addToFavorites/{{x.id}}"><button>Add to Favorites</button></a>
+        </td>
+        <td><a href="/user/{{x.quoted_by.id}}">{{x.quoted_by.name}}</a></td>
+     </tr>
+    {% endfor%}
+    </table> 
+<hr>
+<br>
+<br>
+<br>
+<br>
+    <p>Your Favorites</p>
+
+    {% for x in favorites %}
+       <p> {{x.quote.quote}}</p>
+        <p>{{x.quote.author}}</p> <a href="/delete/{{x.id}}">Delete</a>
+    {%endfor%}
+<hr>
+
+    <p>Contribute a Quote:</p>
+    <form action="/addQuote" method="post">
+        {% csrf_token %}
+        Author: <input type="text" name="author"><br>
+        Quote: <textarea name ="quote"></textarea><br>
+        <input type="submit" value="Add Quote">
+    </form>
+<hr>
+<br>
+{%if messages %}
+<ul>
+    {% for message in messages%}
+    <li>{{message}}</li>
+    {%endfor%}
+</ul>
+{% endif %} 
+<br>
+<a href="/"><Button>Logout</Button></a>
+</body>
+</html>

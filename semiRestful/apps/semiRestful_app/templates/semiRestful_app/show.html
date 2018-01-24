@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Info</title>
+</head>
+<body>
+    <h1>User Information</h1>
+    <p>HELLO!!!!!!! {{user.first_name}}</p>
+    {% for user in your_users %}
+
+        <p>Full Name: {{ user.first_name }} {{user.last_name}}</p>
+        Email: {{user.email}}
+        Username: {{user.username}}
+        Date of Birth: {{user.dob}}
+        Registered at: {{user.created_at}}
+
+    {% endfor %}
+</body>
+</html>

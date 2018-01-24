@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results Page</title>
+</head>
+<body>
+    <h3>This survey has been submitted: {{request.session.count}} times.</h3>
+    Here are your results! 
+    <p>Name: {{request.session.name}}</p>
+    <p>Fav Language: {{request.session.favlang}}</p>
+    <p>Location: {{request.session.location}}</p>
+    <p>Comment: {{request.session.comment}}</p>
+    <a href ='/'><Button>Go Back</Button></a> 
+</body>
+</html>

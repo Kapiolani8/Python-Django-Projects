@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon it's like Amazon... but worse</title>
+</head>
+<body>
+    <h3>Amadon Store</h3>
+    <table border=1px>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td name='item'>Mexican Coke</td>
+            <td>$4.99</td>
+            <td>
+                <form action='/amadon/buy' method='post'>
+                {% csrf_token %}
+                <select name='quantity'>
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                </select>
+                <input type='hidden' name='product_id' value='1015' />
+                <input type='submit' value='Buy!' />
+              </form>
+            </td>
+        </tr>
+        <tr>
+            <td name='item'>MAGA Hat</td>
+            <td>$54.99</td>
+            <td>
+                <form action='/amadon/buy' method='post'>
+                {% csrf_token %}
+                <select name='quantity'>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <input type='hidden' name='product_id' value='1016' />
+                <input type='submit' value='Buy!' />
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td name='item'>Moe's Stack</td>
+            <td>$8.76</td>
+            <td>
+                <form action='/amadon/buy' method='post'>
+                {% csrf_token %}
+                <select name='quantity'>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <input type='hidden' name='product_id' value='1017'/>
+                <input type='submit' value='Buy!' />
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

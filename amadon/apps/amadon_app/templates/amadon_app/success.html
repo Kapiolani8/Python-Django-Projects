@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success</title>
+</head>
+<body>
+    <h2>Thank you for your business!</h2>
+    <h4>We charged your credit card $ {{request.session.price}}</h4>
+    <h4>In your lifetime you've spent $ {{request.session.totalPrice}}</h4>
+    <a href="/"><Button>Go Back!<Button></a>
+</body>
+</html>

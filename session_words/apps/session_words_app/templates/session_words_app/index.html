@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Session Words</title>
+</head>
+<body>
+    <h1>Add a new Word</h1>
+    <form action='/addAword' method='post'>
+        {% csrf_token %}
+        <input type='text' name ='word' placeholder ='type a word'> 
+        <p>Choose a color</p>
+        <input type='radio' name='color' value='red'> Red <br>
+        <input type='radio' name='color' value='blue'> Blue <br>
+        <input type='radio' name='color' value='green'> Green <br>
+        <input type='checkbox' name='bigfont' value='the font is big' checked> Choose a BIG font <br>
+        <a href ='/'><Button>Add to Session</Button></a> 
+        <br>
+        <br>
+        <br> 
+        {{request.session.words|safe}}
+
+        {% if request.session.newWord.big %}
+            <h1 style="color: {{request.session.newWord.color }};">{{ request.session.newWord.word }}</h1>
+        {% else %}
+            <p style="color: {{request.session.newWord.color }};">{{ request.session.newWord.word }}</p>
+        {% endif %}
+    </form>
+</body>
+</html>

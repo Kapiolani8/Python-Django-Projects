@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Welcome Back {{user.name}}</h3>
+    <p>You don't have any friends! Add a friend!</p>
+    <table border = 1>
+        <tr>
+            <th>Alias</th>
+            <th>Action</th>
+        </tr>  
+    {% for friend in friends %}
+    <tr>
+        <td>{{user.alias}}</td>
+    
+    {% endfor%}
+
+    </tr>
+    </table> 
+
+<br>
+<br>
+<br>
+<br>
+<p>Other Friends</p>
+    <table border = 1> 
+        <tr>
+            <th>Alias</th>
+            <th>Action</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td><a href="/show/{{user.id}}"><button>{{user.alias}}</button></a></td>
+            <td><a href="/addFriend/{{user.id}}"><button>Add a Friend</button></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/"><Button>Logout</Button></a>
+</body>
+</html>
